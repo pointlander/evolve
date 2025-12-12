@@ -8,6 +8,7 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -20,7 +21,7 @@ type Prompt struct {
 // Query submits a query to the llm
 func Query(query string) string {
 	prompt := Prompt{
-		Model:  "llama3.2",
+		Model:  "gpt-oss",
 		Prompt: query,
 	}
 	data, err := json.Marshal(prompt)
@@ -47,5 +48,5 @@ func Query(query string) string {
 }
 
 func main() {
-
+	fmt.Println(Query("Hello world!"))
 }
